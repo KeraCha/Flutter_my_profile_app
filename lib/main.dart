@@ -1,0 +1,33 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:flutter/material.dart';
+import 'package:kera_chandler/mobile/landing_page_mobile.dart';
+import 'package:kera_chandler/web/landing_page_web.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth > 800) {
+            return LandingPageWeb();
+          } else {
+            return LandingPageMobile();
+          }
+        },
+      ),
+    );
+  }
+}
