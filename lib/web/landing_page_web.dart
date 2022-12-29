@@ -122,7 +122,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset("assets/web.jpg", height: heightDevice / 1.7),
+                Image.asset("assets/web.jpg", height: widthDevice / 1.9),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -223,18 +223,20 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    //nice card to place other widgets into
+                    //nice card to place other widgets into, was replaced with AnimatedCardWeb
                     AnimatedCardWeb(
                       imagePath: "assets/webL.png",
                       text: "Web development",
                     ),
                     AnimatedCardWeb(
-                        imagePath: "assets/app.png", text: "App development"),
+                      imagePath: "assets/app.png",
+                      text: "App development",
+                      fit: BoxFit.contain,
+                      reverse: true,
+                    ),
                     AnimatedCardWeb(
                       imagePath: "assets/firebase.png",
                       text: "Back-end development",
-                      fit: BoxFit.contain,
-                      reverse: true,
                     ),
                   ],
                 ),

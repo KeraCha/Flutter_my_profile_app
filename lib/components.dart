@@ -158,7 +158,7 @@ class _AnimatedCardWebState extends State<AnimatedCardWeb>
   late AnimationController _controller = AnimationController(
     vsync: this,
     duration: const Duration(seconds: 4),
-  )..repeat();
+  )..repeat(reverse: true);
 
   late Animation<Offset> _animation = Tween(
     begin: widget.reverse == true ? Offset(0, 0.08) : Offset.zero,
@@ -173,7 +173,7 @@ class _AnimatedCardWebState extends State<AnimatedCardWeb>
 
   @override
   Widget build(BuildContext context) {
-    return slideTransition(
+    return SlideTransition(
       position: _animation,
       child: Card(
         elevation: 30.0,
