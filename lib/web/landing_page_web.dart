@@ -16,7 +16,19 @@ class _LandingPageWebState extends State<LandingPageWeb> {
     var widthDevice = MediaQuery.of(context).size.width;
     return Scaffold(
       //drawer is a hamburger menu on the left hand side that can draw out
-      drawer: Drawer(),
+      drawer: Drawer(
+        backgroundColor: Colors.white,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 70.0,
+              backgroundColor: Colors.white,
+              backgroundImage: AssetImage("assets/AirBnb Pic.jpg"),
+            ),
+          ],
+        ),
+      ),
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
