@@ -1,4 +1,8 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
+import 'package:kera_chandler/mobile/contact_mobile.dart';
+import 'package:kera_chandler/web/contact_web.dart';
 import 'package:kera_chandler/web/landing_page_web.dart';
 
 import 'mobile/landing_page_mobile.dart';
@@ -17,6 +21,15 @@ class Routes {
               return LandingPageMobile();
           }),
         );
+      case '/contact':
+        return MaterialPageRoute(
+            builder: (_) => LayoutBuilder(builder: (context, constraints) {
+                  if (constraints.maxWidth > 800) {
+                    return ContactWeb();
+                  } else
+                    return ContactMobile();
+                }),
+            settings: settings);
       default:
         return MaterialPageRoute(
           settings: settings,

@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TabsWeb extends StatefulWidget {
   final title;
-  const TabsWeb(this.title, {Key? key}) : super(key: key);
+  final route;
+  const TabsWeb({Key? key, this.title, this.route}) : super(key: key);
 
   @override
   State<TabsWeb> createState() => _TabsWebState();
@@ -14,40 +15,45 @@ class _TabsWebState extends State<TabsWeb> {
   Widget build(BuildContext context) {
     bool isSelected = false;
     //MouseRegion widget detects mouse position when cursor hovers over it
-    return MouseRegion(
-      onEnter: (_) {
-        setState(() {
-          isSelected = true;
-        });
-        // print("Entered");
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed(widget.route);
       },
-      //detects when mouse enters or exits a widget.
-      //Ie. When user hovers over the Home text!!
-      onExit: (_) {
-        setState(() {
-          isSelected = false;
-        });
-        // print("Exit");
-      },
-      child: AnimatedDefaultTextStyle(
-        duration: const Duration(milliseconds: 100),
-        curve: Curves.elasticIn,
-        style: isSelected
-            ? GoogleFonts.roboto(
-                shadows: [
-                    Shadow(
-                      color: Colors.black,
-                      offset: Offset(0, -8),
-                    ),
-                  ],
-                fontSize: 25.0,
-                color: Colors.transparent,
-                decoration: TextDecoration.underline,
-                decorationThickness: 2,
-                decorationColor: Colors.black)
-            : GoogleFonts.roboto(color: Colors.tealAccent, fontSize: 20.0),
-        child: Text(
-          widget.title,
+      child: MouseRegion(
+        onEnter: (_) {
+          setState(() {
+            isSelected = true;
+          });
+          // print("Entered");
+        },
+        //detects when mouse enters or exits a widget.
+        //Ie. When user hovers over the Home text!!
+        onExit: (_) {
+          setState(() {
+            isSelected = false;
+          });
+          // print("Exit");
+        },
+        child: AnimatedDefaultTextStyle(
+          duration: const Duration(milliseconds: 100),
+          curve: Curves.elasticIn,
+          style: isSelected
+              ? GoogleFonts.roboto(
+                  shadows: [
+                      Shadow(
+                        color: Colors.black,
+                        offset: Offset(0, -8),
+                      ),
+                    ],
+                  fontSize: 25.0,
+                  color: Colors.transparent,
+                  decoration: TextDecoration.underline,
+                  decorationThickness: 2,
+                  decorationColor: Colors.black)
+              : GoogleFonts.roboto(color: Colors.tealAccent, fontSize: 20.0),
+          child: Text(
+            widget.title,
+          ),
         ),
       ),
     );
@@ -68,18 +74,21 @@ class _TabsMobileState extends State<TabsMobile> {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-        elevation: 20.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5.0),
-        ),
-        height: 50.0,
-        minWidth: 200.0,
-        color: Colors.black,
-        child: Text(
-          widget.text,
-          style: GoogleFonts.openSans(fontSize: 20.0, color: Colors.white),
-        ),
-        onPressed: () {});
+      elevation: 20.0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5.0),
+      ),
+      height: 50.0,
+      minWidth: 200.0,
+      color: Colors.black,
+      child: Text(
+        widget.text,
+        style: GoogleFonts.openSans(fontSize: 20.0, color: Colors.white),
+      ),
+      onPressed: () {
+        Navigator.of(context).pushNamed(widget.route);
+      },
+    );
   }
 }
 
@@ -113,15 +122,15 @@ class Sans extends StatelessWidget {
 }
 
 class TextForm extends StatelessWidget {
-  final heading;
-  final width;
+  final text;
+  final containerWidth;
   final hintText;
   final maxLines;
   //@required makes this mandatory to complete where used in the code
   const TextForm(
       {Key? key,
-      @required this.heading,
-      @required this.width,
+      @required this.text,
+      @required this.containerWidth,
       @required this.hintText,
       this.maxLines})
       : super(key: key);
@@ -131,10 +140,10 @@ class TextForm extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Sans(heading, 16.0),
+        Sans(text, 16.0),
         SizedBox(height: 5.0),
         SizedBox(
-          width: width,
+          width: containerWidth,
           //To collect information from users = TextFormField
           child: TextFormField(
             //max lines for size of the box which can be set as is passed above
@@ -165,24 +174,29 @@ class TextForm extends StatelessWidget {
   }
 }
 
-class AnimatedCardWeb extends StatefulWidget {
+class AnimatedCard extends StatefulWidget {
   final imagePath;
   final text;
   final fit;
   final reverse;
-  const AnimatedCardWeb(
+  final height;
+  final width;
+
+  const AnimatedCard(
       {Key? key,
       @required this.imagePath,
       @required this.text,
       this.fit,
-      this.reverse})
+      this.reverse,
+      this.height,
+      this.width})
       : super(key: key);
 
   @override
-  State<AnimatedCardWeb> createState() => _AnimatedCardWebState();
+  State<AnimatedCard> createState() => _AnimatedCardState();
 }
 
-class _AnimatedCardWebState extends State<AnimatedCardWeb>
+class _AnimatedCardState extends State<AnimatedCard>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller = AnimationController(
     vsync: this,
@@ -219,8 +233,8 @@ class _AnimatedCardWebState extends State<AnimatedCardWeb>
             children: [
               Image.asset(
                 widget.imagePath,
-                height: 200.0,
-                width: 200.0,
+                height: widget.height == null ? 200.0 : widget.height,
+                width: widget.width == null ? 200.0 : widget.width,
                 fit: widget.fit == null ? null : widget.fit,
               ),
               SizedBox(height: 10.0),

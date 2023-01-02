@@ -71,15 +71,15 @@ class _LandingPageWebState extends State<LandingPageWeb> {
         title: Row(
           children: [
             Spacer(flex: 3),
-            TabsWeb("Home"),
+            TabsWeb(title: "Home", route: '/'),
             Spacer(),
-            TabsWeb("Works"),
+            TabsWeb(title: "Works", route: '/works'),
             Spacer(),
-            TabsWeb("Blog"),
+            TabsWeb(title: "Blog", route: '/blog'),
             Spacer(),
-            TabsWeb("About"),
+            TabsWeb(title: "About", route: '/about'),
             Spacer(),
-            TabsWeb("Contact"),
+            TabsWeb(title: "Contact", route: '/contact'),
             Spacer(),
           ],
         ),
@@ -149,8 +149,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                       //child: Image.asset("assets/AirBnb Pic-modified.png"),
                       radius: 140.0,
                       backgroundColor: Colors.white,
-                      backgroundImage:
-                          AssetImage("assets/AirBnb Pic-modified.png"),
+                      backgroundImage: AssetImage("assets/image.png"),
                     ),
                   ),
                 ),
@@ -266,17 +265,17 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     //nice card to place other widgets into, was replaced with AnimatedCardWeb
-                    AnimatedCardWeb(
+                    AnimatedCard(
                       imagePath: "assets/webL.png",
                       text: "Web development",
                     ),
-                    AnimatedCardWeb(
+                    AnimatedCard(
                       imagePath: "assets/app.png",
                       text: "App development",
                       fit: BoxFit.contain,
                       reverse: true,
                     ),
-                    AnimatedCardWeb(
+                    AnimatedCard(
                       imagePath: "assets/firebase.png",
                       text: "Back-end development",
                     ),
@@ -299,35 +298,35 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                     Column(
                       children: [
                         TextForm(
-                          width: 350.0,
-                          heading: "First Name",
+                          containerWidth: 350.0,
+                          text: "First Name",
                           hintText: "Please type your first name",
                         ),
                         SizedBox(height: 15.0),
                         TextForm(
-                            heading: "Email",
-                            width: 350.0,
+                            text: "Email",
+                            containerWidth: 350.0,
                             hintText: "Please enter your email address"),
                       ],
                     ),
                     Column(
                       children: [
                         TextForm(
-                            heading: "Last Name",
-                            width: 350.0,
+                            text: "Last Name",
+                            containerWidth: 350.0,
                             hintText: "Please type your last name"),
                         SizedBox(height: 15.0),
                         TextForm(
-                            heading: "Phone Number",
-                            width: 350.0,
+                            text: "Phone Number",
+                            containerWidth: 350.0,
                             hintText: "Please type your phone number"),
                       ],
                     ),
                   ],
                 ),
                 TextForm(
-                  heading: "Message",
-                  width: widthDevice / 1.5,
+                  text: "Message",
+                  containerWidth: widthDevice / 1.5,
                   hintText: "Please type your message",
                   maxLines: 10.0,
                 ),
