@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kera_chandler/components.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LandingPageWeb extends StatefulWidget {
   const LandingPageWeb({Key? key}) : super(key: key);
@@ -10,6 +11,17 @@ class LandingPageWeb extends StatefulWidget {
 }
 
 class _LandingPageWebState extends State<LandingPageWeb> {
+  urlLauncher(String imgPath, String url) {
+    return IconButton(
+      icon: SvgPicture.asset(imgPath, color: Colors.black, width: 35.0),
+      onPressed: () async {
+        await launchUrl(
+          Uri.parse(url),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     var heightDevice = MediaQuery.of(context).size.height;
@@ -22,9 +34,27 @@ class _LandingPageWebState extends State<LandingPageWeb> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
-              radius: 70.0,
-              backgroundColor: Colors.white,
-              backgroundImage: AssetImage("assets/AirBnb Pic.jpg"),
+              radius: 72.0,
+              backgroundColor: Colors.tealAccent,
+              child: CircleAvatar(
+                radius: 70.0,
+                backgroundColor: Colors.white,
+                backgroundImage: AssetImage("assets/AirBnb Pic.jpg"),
+              ),
+            ),
+            SizedBox(height: 15.0),
+            SansBold("Kera Chandler", 30.0),
+            SizedBox(height: 15.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                urlLauncher("assets/instagram.svg",
+                    "https://www.instagram.com/tomcruise/"),
+                urlLauncher(
+                    "assets/twitter.svg", "https://www.twitter.com/tomcruise"),
+                urlLauncher(
+                    "assets/github.svg", "https://www.github.com/KeraCha"),
+              ],
             ),
           ],
         ),
