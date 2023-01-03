@@ -4,17 +4,16 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../components.dart';
 
-class ContactMobile extends StatefulWidget {
-  const ContactMobile({Key? key}) : super(key: key);
+class WorksMobile extends StatefulWidget {
+  const WorksMobile({Key? key}) : super(key: key);
 
   @override
-  State<ContactMobile> createState() => _ContactMobileState();
+  State<WorksMobile> createState() => _WorksMobileState();
 }
 
-class _ContactMobileState extends State<ContactMobile> {
+class _WorksMobileState extends State<WorksMobile> {
   @override
   Widget build(BuildContext context) {
-    var widthDevice = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
@@ -93,54 +92,37 @@ class _ContactMobileState extends State<ContactMobile> {
                   color: Colors.black,
                 ),
                 flexibleSpace: FlexibleSpaceBar(
-                  background: Image.asset("assets/contact_image.jpg",
+                  background: Image.asset("assets/works.jpg",
                       filterQuality: FilterQuality.high, fit: BoxFit.cover),
                 ),
               ),
             ];
           },
-          body: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(vertical: 25.0),
-            child: Wrap(
-              runSpacing: 20.0,
-              spacing: 20.0,
-              alignment: WrapAlignment.center,
-              children: [
-                SansBold("Contact me", 35.0),
-                TextForm(
-                    text: "First Name",
-                    containerWidth: widthDevice / 1.4,
-                    hintText: "Please type first name"),
-                TextForm(
-                    text: "Last Name",
-                    containerWidth: widthDevice / 1.4,
-                    hintText: "Please type last name"),
-                TextForm(
-                    text: "Phone Number",
-                    containerWidth: widthDevice / 1.4,
-                    hintText: "Please type phone number"),
-                TextForm(
-                    text: "Email",
-                    containerWidth: widthDevice / 1.4,
-                    hintText: "Please type email address"),
-                TextForm(
-                    text: "Message",
-                    containerWidth: widthDevice / 1.4,
-                    hintText: "Please type your message",
-                    maxLines: 10),
-                MaterialButton(
-                  onPressed: () {},
-                  elevation: 20.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
+          body: ListView(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: 20.0),
+                  SansBold("Works", 35.0),
+                  SizedBox(height: 20.0),
+                  AnimatedCard(
+                      imagePath: "assets/portfolio_screenshot.png",
+                      fit: BoxFit.contain,
+                      height: 150.0,
+                      width: 300.0),
+                  SizedBox(height: 30.0),
+                  SansBold("Portfolio", 20.0),
+                  SizedBox(height: 10.0),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Sans(
+                        "Deployed on Android, Ios and Web, the portfolio project was truly an achievement. I used Flutter to develop the beautiful and responsive UI and Firebase for the back-end.",
+                        15.0),
                   ),
-                  height: 60.0,
-                  minWidth: widthDevice / 2.2,
-                  color: Colors.tealAccent,
-                  child: SansBold("Submit", 20.0),
-                ),
-              ],
-            ),
+                ],
+              )
+            ],
           ),
         ),
       ),

@@ -50,8 +50,8 @@ class _TabsWebState extends State<TabsWeb> {
                   color: Colors.transparent,
                   decoration: TextDecoration.underline,
                   decorationThickness: 2,
-                  decorationColor: Colors.black)
-              : GoogleFonts.roboto(color: Colors.tealAccent, fontSize: 20.0),
+                  decorationColor: Colors.tealAccent)
+              : GoogleFonts.roboto(color: Colors.black, fontSize: 20.0),
           child: Text(
             widget.title,
           ),
@@ -119,6 +119,31 @@ class Sans extends StatelessWidget {
       style: GoogleFonts.openSans(fontSize: size),
     );
     return Container();
+  }
+}
+
+class AbelCustom extends StatelessWidget {
+  final text;
+  final size;
+  final color;
+  final fontWeight;
+  const AbelCustom(
+      {Key? key,
+      @required this.text,
+      @required this.size,
+      this.color,
+      this.fontWeight})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: GoogleFonts.abel(
+          fontSize: size,
+          color: color == null ? Colors.black : color,
+          fontWeight: fontWeight == null ? FontWeight.normal : fontWeight),
+    );
   }
 }
 
