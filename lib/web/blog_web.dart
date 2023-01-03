@@ -1,0 +1,13 @@
+class BlogWeb extends StatefulWidget {
+  const BlogWeb({Key? key}) : super(key: key);
+
+  @override
+  State<BlogWeb> createState() => _BlogWebState();
+}
+
+class _BlogWebState extends State<BlogWeb> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}

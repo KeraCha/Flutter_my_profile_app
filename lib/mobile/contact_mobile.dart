@@ -29,7 +29,8 @@ class _ContactMobileState extends State<ContactMobile> {
                   shape: BoxShape.circle,
                   border: Border.all(width: 2.0, color: Colors.black),
                 ),
-                child: Image.asset('assets/image.png'),
+                child: Image.asset('assets/image.png',
+                    filterQuality: FilterQuality.high),
               ),
             ),
             TabsMobile(text: "Home", route: '/'),
@@ -91,8 +92,8 @@ class _ContactMobileState extends State<ContactMobile> {
                 color: Colors.black,
               ),
               flexibleSpace: FlexibleSpaceBar(
-                background:
-                    Image.asset("assets/contact_image.jpg", fit: BoxFit.cover),
+                background: Image.asset("assets/contact_image.jpg",
+                    filterQuality: FilterQuality.high, fit: BoxFit.cover),
               ),
             ),
           ];

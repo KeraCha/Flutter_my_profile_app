@@ -1,7 +1,9 @@
 import 'dart:js';
 
 import 'package:flutter/material.dart';
+import 'package:kera_chandler/mobile/about_mobile.dart';
 import 'package:kera_chandler/mobile/contact_mobile.dart';
+import 'package:kera_chandler/web/about_web.dart';
 import 'package:kera_chandler/web/contact_web.dart';
 import 'package:kera_chandler/web/landing_page_web.dart';
 
@@ -28,6 +30,15 @@ class Routes {
                     return ContactWeb();
                   } else
                     return ContactMobile();
+                }),
+            settings: settings);
+      case '/about':
+        return MaterialPageRoute(
+            builder: (_) => LayoutBuilder(builder: (context, constraints) {
+                  if (constraints.maxWidth > 800) {
+                    return AboutWeb();
+                  } else
+                    return AboutMobile();
                 }),
             settings: settings);
       default:

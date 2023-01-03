@@ -11,9 +11,10 @@ class TabsWeb extends StatefulWidget {
 }
 
 class _TabsWebState extends State<TabsWeb> {
+  bool isSelected = false;
+
   @override
   Widget build(BuildContext context) {
-    bool isSelected = false;
     //MouseRegion widget detects mouse position when cursor hovers over it
     return GestureDetector(
       onTap: () {
@@ -185,7 +186,7 @@ class AnimatedCard extends StatefulWidget {
   const AnimatedCard(
       {Key? key,
       @required this.imagePath,
-      @required this.text,
+      this.text,
       this.fit,
       this.reverse,
       this.height,
@@ -240,7 +241,7 @@ class _AnimatedCardState extends State<AnimatedCard>
               SizedBox(height: 10.0),
               //back-end focuses on server side (firebase), users don't see
               //front end is working with flutter
-              SansBold(widget.text, 15.0),
+              widget.text == null ? SizedBox() : SansBold(widget.text, 15.0),
             ],
           ),
         ),
