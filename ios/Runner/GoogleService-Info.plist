@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>497632304075-g1oku98ib15qhtc7k417c7dq6s5h26i4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.497632304075-g1oku98ib15qhtc7k417c7dq6s5h26i4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBkHF0p8irrqPCPbaZzJ5wZbQ55ds4VwhQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>497632304075</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>kerachandler.com.keraChandler</string>
+	<key>PROJECT_ID</key>
+	<string>kera-chandler</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kera-chandler.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:497632304075:ios:768358d94fa201f4c8744e</string>
+</dict>
+</plist>

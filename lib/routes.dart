@@ -1,15 +1,12 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
+import 'package:kera_chandler/common/blog.dart';
 import 'package:kera_chandler/mobile/about_mobile.dart';
 import 'package:kera_chandler/mobile/contact_mobile.dart';
 import 'package:kera_chandler/web/about_web.dart';
-import 'package:kera_chandler/web/blog_web.dart';
 import 'package:kera_chandler/web/contact_web.dart';
 import 'package:kera_chandler/web/landing_page_web.dart';
 import 'package:kera_chandler/web/works_web.dart';
 
-import 'mobile/blog_mobile.dart';
 import 'mobile/landing_page_mobile.dart';
 import 'mobile/works_mobile.dart';
 
@@ -46,14 +43,7 @@ class Routes {
                 }),
             settings: settings);
       case '/blog':
-        return MaterialPageRoute(
-            builder: (_) => LayoutBuilder(builder: (context, constraints) {
-                  if (constraints.maxWidth > 800) {
-                    return BlogWeb();
-                  } else
-                    return BlogMobile();
-                }),
-            settings: settings);
+        return MaterialPageRoute(builder: (_) => Blog(), settings: settings);
       case '/works':
         return MaterialPageRoute(
             builder: (_) => LayoutBuilder(builder: (context, constraints) {

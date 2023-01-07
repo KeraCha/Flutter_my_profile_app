@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "497632304075",
+    "project_id": "kera-chandler",
+    "storage_bucket": "kera-chandler.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497632304075:android:6bce9e67663183cdc8744e",
+        "android_client_info": {
+          "package_name": "kerachandler.com.kera_chandler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "497632304075-kc2lau0ek9617p22cu2u9bm37297cfgl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYsUvDr0RiszVJvVfeTRCcW3XQ6ViP5Zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "497632304075-kc2lau0ek9617p22cu2u9bm37297cfgl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "497632304075-g1oku98ib15qhtc7k417c7dq6s5h26i4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "kerachandler.com.keraChandler"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
